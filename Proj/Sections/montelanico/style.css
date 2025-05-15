@@ -1,0 +1,202 @@
+/* === CSS Reset & Variables === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: 236, 205, 188;
+  --secondary-color: 247, 102, 22; /*arancions*/
+  --text-color: #000000;
+  --background-overlay: rgba(var(--secondary-color), 0.15);
+  --transition-speed: 0.3s;
+}
+
+/* === Global Styles === */
+body {
+  font-family: 'Inter', sans-serif;
+  background: #000;
+  color: var(--text-color);
+}
+
+/* === Background Videos === */
+#background-vid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 1;
+  pointer-events: none;
+  z-index: -2;
+  mix-blend-mode: screen;
+}
+
+#dust-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: -1;
+  mix-blend-mode: screen;
+}
+
+/* === Glassmorphism Game Container === */
+#game-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 40px;
+  background: var(--background-overlay);
+  border-radius: 15px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+/* === Question Container === */
+#question-container {
+  width: 100%;
+  padding: 20px;
+  background: rgba(var(--primary-color), 0.15);
+  border-radius: 15px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  margin-bottom: 20px;
+}
+
+/* === Heading in Question Container === */
+#question-container h2 {
+	font-size: 1.75rem;
+  font-family: 'Orbitron', sans-serif;
+  color: rgba(0, 0, 0, 1);
+  padding: 15px 30px;
+  margin: 20px auto;
+  text-shadow: 0px 0px 50px rgba(255, 255, 255, 1);
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* === Audio Player Styling === */
+#audio {
+  width: 80%;
+  max-width: 500px;
+  display: block;
+  margin: 20px auto;
+  padding: 10px;
+  background: rgba(var(--primary-color), 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* === Answer Button Styling === */
+.answer-btn {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.25rem;
+  color: var(--text-color);
+  padding: 15px 30px;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s ease-in-out;
+  animation: button-glow 3s ease-in-out infinite alternate, button-hover 4s ease-in-out infinite alternate;
+}
+
+.answer-btn:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(var(--secondary-color), 0.6)); /* PRIMARY COLOR TRANSPARENT */
+  color: var(--text-color);
+  box-shadow: 0px 0px 15px rgba(100, 149, 237, 0.5);
+  text-shadow: none;
+}
+
+/* --- Button Glow & Hover Animations --- */
+@keyframes button-glow {
+  0% { box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2); }
+  50% { box-shadow: 0px 0px 20px rgba(255, 255, 255, 1); }
+  100% { box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2); }
+}
+
+@keyframes button-hover {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+  100% { transform: translateY(0px); }
+}
+
+/* --- Glowing Effects for Correct/Incorrect Answers --- */
+@keyframes correct-glow {
+  0% { box-shadow: 0px 0px 10px rgba(50, 255, 50, 0.6); }
+  25% { box-shadow: 0px 0px 25px rgba(50, 255, 50, 1), inset 0px 0px 15px rgba(50, 255, 50, 1); }
+  100% { box-shadow: 0px 0px 10px rgba(50, 255, 50, 0.6); }
+}
+
+@keyframes incorrect-glow {
+  0% { box-shadow: 0px 0px 10px rgba(255, 50, 50, 0.6); }
+  25% { box-shadow: 0px 0px 20px rgba(255, 50, 50, 1), inset 0px 0px 10px rgba(255, 50, 50, 1); }
+  100% { box-shadow: 0px 0px 5px rgba(255, 50, 50, 0.4); }
+}
+
+.correct-answer {
+  animation: correct-glow 1s ease-in-out infinite alternate;
+}
+
+.incorrect-answer {
+  animation: incorrect-glow 0.8s ease-in-out infinite alternate;
+}
+
+/* === Final Score & Reaction Styling === */
+#final-result {
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  margin-top: 20px;
+  
+}
+
+#final-score {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 0px 0px 20px rgba(50, 255, 100, 1)
+}
+
+.score-reaction {
+  font-size: 1.25rem;
+}
+
+/* === Back Button Styling === */
+#back-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 15px 30px;
+  background: var(--background-overlay);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  color: var(--text-color);
+  font-family: 'Orbitron', sans-serif;
+  cursor: pointer;
+  transition: background var(--transition-speed) ease-in-out;
+  z-index: 1000;
+}
+
+#back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
