@@ -13,12 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     { 
       text: "Cosa ha detto?", 
-      choices: ["I bambini non ascoltano mai i consigli dei loro genitori", "Quando il danno è fatto, c'è di mezzo un adulto", "I bambini ripetono quello che dicono i grandi"], 
+      choices: ["I bambini non ascoltano mai i consigli dei loro genitori", "Quando il danno è fatto, c'è di mezzo un adulto", "Quando i bambini parlano, i grandi hanno già parlato"], 
       correct: 2 
     },
     { 
       text: "Chi sta parlando?", 
-      choices: ["Una persona che si vanta delle sue proprietà", "Una persona insaziabile", "Un nobile servo"], 
+      choices: ["Una persona che si vanta delle sue proprietà", "Una persona insaziabile", "Un nobile altezzoso"], 
       correct: 1 
     }
   ];
