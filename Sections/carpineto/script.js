@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
       choices: [
         "È un postino", 
         "È un macellaio", 
-        "È un pastore"
+        "È un contadino"
       ], 
       correct: 2 
     },
