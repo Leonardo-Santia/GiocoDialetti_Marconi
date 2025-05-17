@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { 
       text: "Chi sono loro?", 
       choices: ["Nobili", "Non è specificato", "Contadini"], 
-      correct: 1 
+      correct: 2 
     }
   ];
   
